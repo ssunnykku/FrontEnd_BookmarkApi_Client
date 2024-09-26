@@ -21,7 +21,11 @@ const Pagination: React.FC<PaginationProps> = ({ bookmarks, query }) => {
     pathname: path,
     query: { page: bookmarks.currentPage + 1, ...queryParams },
   };
-  const lastPage = { pathname: path, query: { page: bookmarks.totalPages } };
+  const lastPage = {
+    pathname: path,
+    query: { page: bookmarks.totalPages },
+    ...queryParams,
+  };
 
   return (
     <div>
