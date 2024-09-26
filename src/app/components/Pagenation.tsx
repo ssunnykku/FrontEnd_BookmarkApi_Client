@@ -4,18 +4,22 @@ import { BookmarksResponse } from "@/types";
 
 type PaginationProps = {
   bookmarks: BookmarksResponse;
+  query?: string;
 };
 
-const Pagination: React.FC<PaginationProps> = ({ bookmarks }) => {
+const Pagination: React.FC<PaginationProps> = ({ bookmarks, query }) => {
   const path = "/bookmarks";
-  const firstPage = { pathname: path, query: { page: 1 } };
+  const queryParams =
+    query === undefined || query === "" ? {} : { query: query };
+
+  const firstPage = { pathname: path, query: { page: 1 }, ...queryParams };
   const previousPage = {
     pathname: path,
-    query: { page: bookmarks.currentPage - 1 },
+    query: { page: bookmarks.currentPage - 1, ...queryParams },
   };
   const nextPage = {
     pathname: path,
-    query: { page: bookmarks.currentPage + 1 },
+    query: { page: bookmarks.currentPage + 1, ...queryParams },
   };
   const lastPage = { pathname: path, query: { page: bookmarks.totalPages } };
 
