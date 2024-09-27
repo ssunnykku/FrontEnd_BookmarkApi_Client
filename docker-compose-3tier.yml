@@ -26,7 +26,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=postgres
 
   bookmark-client:
-    image: ssunnykku/springbootnextjs:client0.1
+    image: ssunnykku/springbootnextjs:client0.2
     container_name: bookmark-client
     ports:
       - "3000:3000"
