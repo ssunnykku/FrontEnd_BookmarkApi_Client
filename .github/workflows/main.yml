@@ -2,14 +2,14 @@ name: Create image
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   pull_request:
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 env:
   DOCKER_IMAGE: springbootnextjs
-  DOCKER_TAG: client0.2
+  DOCKER_TAG: client0.3
 
 jobs:
   Docker:
